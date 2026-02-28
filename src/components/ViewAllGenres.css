@@ -1,0 +1,42 @@
+.view-all-genres {
+  padding: 2rem;
+  background-color: #151934; /* Background color */
+  color: #ffffff; /* Text color */
+}
+
+.genres-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 1.5rem; /* Space between genre cards */
+}
+
+.genre-card {
+  background: rgba(255, 255, 255, 0.1); /* Background for cards */
+  border-radius: 12px;
+  padding: 1rem; /* Padding for cards */
+  text-align: center; /* Center text */
+  transition: all 0.3s ease;
+}
+
+.genre-card:hover {
+  transform: translateY(-4px);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.genre-card i {
+  font-size: 2rem;
+  color: #8B5CF6;
+  margin-bottom: 1rem;
+}
+
+.genre-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.book-count {
+  font-size: 0.9rem;
+  color: #A0A0A0;
+}
+    

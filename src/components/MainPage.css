@@ -1,0 +1,846 @@
+:root {
+  --primary-color: #8B5CF6; /* Primary color for buttons and highlights */
+  --secondary-color: #7C3AED; /* Secondary color for hover effects */
+  --text-primary: #FFFFFF; /* Primary text color */
+  --text-secondary: #A0A0A0; /* Secondary text color */
+  --background-dark: #0A0F1C; /* Dark background color */
+  --background-light: rgba(255, 255, 255, 0.1); /* Light background for cards */
+}
+
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed; /* Make the sidebar fixed */
+  top: 0; /* Align it to the top */
+  left: 0; /* Align it to the left */
+  width: 250px; /* Increased width from 200px to 250px */
+  height: 100vh; /* Full height */
+  background-color: #151934; /* Sidebar color */
+  padding: 1rem 0; /* Reduced padding */
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem; /* Adjust padding as needed */
+  color: #94A3B8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem; /* Adjust font size as needed */
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--primary-color);
+}
+
+.nav-item.active {
+  color: var(--primary-color);
+  background-color: rgba(139, 92, 246, 0.1);
+  position: relative;
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--primary-color);
+}
+
+.nav-item i {
+  margin-right: 1rem;
+  width: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.nav-item.logout {
+  margin-top: auto;
+  color: #8B5CF6;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+.nav-item.logout:hover {
+  background-color: rgba(139, 92, 246, 0.1);
+  color: #7C3AED;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  padding: 1.5rem; /* Reduced padding */
+  margin-left: 250px; /* Adjust margin to match the new sidebar width */
+  overflow-y: auto;
+}
+
+/* Header Styles */
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem; /* Reduced margin */
+  padding: 0.5rem 1rem; /* Reduced padding */
+  background: #151934; /* Header background */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px; /* Reduced border radius */
+  position: relative;
+  z-index: 10;
+}
+
+.logo-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Reduced gap */
+  font-size: 1.1rem; /* Slightly smaller font size */
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.logo-text i {
+  color: #8B5CF6;
+  font-size: 1.5rem;
+}
+
+.search-bar {
+  flex: 1;
+  max-width: 300px; /* Adjusted max width */
+  margin: 0 1rem; /* Reduced margin */
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.5rem; /* Reduced padding */
+  background-color: var(--background-light);
+  border: none;
+  border-radius: 6px; /* Reduced border radius */
+  color: var(--text-primary);
+  font-size: 0.85rem; /* Slightly smaller font size */
+}
+
+.search-bar input::placeholder {
+  color: var(--text-secondary);
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.settings-btn, .profile-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  font-size: 1.25rem;
+}
+
+.settings-btn:hover, .profile-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.creator-btn {
+  background-color: #8B5CF6;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.creator-btn:hover {
+  background-color: #7C3AED;
+}
+
+/* Hero Section */
+.hero-container {
+  background: #151934;
+  border-radius: 16px; /* Reduced border radius */
+  padding: 2rem; /* Reduced padding */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem; /* Reduced gap */
+  margin-bottom: 2rem; /* Reduced margin */
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 500px; /* Adjusted max width */
+}
+
+.hero-content h1 {
+  font-size: 3rem; /* Reduced font size */
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem; /* Reduced margin */
+}
+
+.hero-content h1 span {
+  display: block;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #8B5CF6, #6366F1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hero-content p {
+  font-size: 1rem; /* Reduced font size */
+  color: #94A3B8;
+  margin-bottom: 1.5rem; /* Reduced margin */
+  line-height: 1.4; /* Adjusted line height */
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 0.5rem; /* Reduced gap */
+}
+
+.browse-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem; /* Reduced padding */
+  border-radius: 6px; /* Reduced border radius */
+  font-size: 0.9rem; /* Slightly smaller font size */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.browse-btn:hover {
+  background: var(--secondary-color);
+}
+
+.info-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1.5rem; /* Reduced padding */
+  border-radius: 6px; /* Reduced border radius */
+  font-size: 0.9rem; /* Slightly smaller font size */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.info-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.hero-image {
+  flex-shrink: 0;
+  width: 300px;
+  height: 450px;
+  position: relative;
+}
+
+.featured-book {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .main-layout {
+    flex-direction: column; /* Stack sidebar and content on smaller screens */
+  }
+
+  .sidebar {
+    position: relative; /* Change to relative on smaller screens */
+    height: auto; /* Allow height to adjust */
+    width: 100%; /* Full width */
+  }
+
+  .main-content {
+    margin-left: 0; /* Remove left margin */
+    padding: 1rem; /* Adjust padding */
+  }
+
+  .hero-container {
+    flex-direction: column; /* Stack hero content */
+    padding: 1.5rem; /* Adjust padding */
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem; /* Adjust font size */
+  }
+}
+
+@media (max-width: 640px) {
+  .main-layout {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .hero-container {
+    padding: 1rem; /* Adjust padding */
+  }
+
+  .hero-content h1 {
+    font-size: 2rem; /* Adjust font size */
+  }
+
+  .hero-content p {
+    font-size: 0.9rem; /* Adjust font size */
+  }
+}
+
+/* Common Section Styles */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem; /* Reduced margin */
+}
+
+.section-header h2 {
+  font-size: 1.25rem; /* Adjusted font size */
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.view-all-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 0.85rem; /* Adjusted font size */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-all-btn:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* Genres Section */
+.genres-section {
+  margin: 4rem 0;
+}
+
+.genres-grid {
+  display: flex; /* Use flex for a horizontal layout */
+  overflow-x: auto; /* Allow horizontal scrolling */
+  gap: 1.5rem; /* Increase gap for better spacing */
+  padding: 1rem 0; /* Optional: Add padding for aesthetics */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.genres-grid::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+
+.genre-card {
+  width: 250px; /* Increase the width for larger cards */
+  background: rgba(255, 255, 255, 0.1); /* Background for cards */
+  border-radius: 12px;
+  padding: 1rem; /* Padding for cards */
+  text-align: center; /* Center text */
+  flex-shrink: 0; /* Prevent cards from shrinking */
+}
+
+.genre-card:hover {
+  transform: translateY(-4px);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.genre-card i {
+  font-size: 2rem;
+  color: #8B5CF6;
+  margin-bottom: 1rem;
+}
+
+.genre-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.book-count {
+  font-size: 0.9rem;
+  color: #A0A0A0;
+}
+
+/* Popular Section (Updated) */
+.popular-section {
+  margin: 4rem 0;
+}
+
+/* View Options Styles */
+.view-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.view-option {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #A0A0A0;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-option:hover {
+  background-color: rgba(139, 92, 246, 0.1);
+  border-color: #8B5CF6;
+  color: #ffffff;
+}
+
+.view-option.active {
+  background-color: #8B5CF6;
+  border-color: #8B5CF6;
+  color: #ffffff;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted min width */
+  gap: 2rem; /* Space between cards */
+}
+
+.book-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex; /* Use flex to align items */
+  flex-direction: column; /* Stack items vertically */
+  height: 100%; /* Ensure cards take full height */
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
+}
+
+.book-cover {
+  position: relative;
+  aspect-ratio: 2/3; /* Maintain aspect ratio */
+  overflow: hidden;
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.book-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.book-card:hover .book-overlay {
+  opacity: 1;
+}
+
+.play-btn {
+  background: #8B5CF6;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.play-btn:hover {
+  background: #7C3AED;
+  transform: scale(1.1);
+}
+
+.book-info {
+  padding: 1rem; /* Ensure padding for text */
+  flex-grow: 1; /* Allow text area to grow */
+}
+
+.book-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #ffffff;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.book-author {
+  font-size: 0.9rem;
+  color: #A0A0A0;
+  margin-bottom: 0.5rem;
+}
+
+.book-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.book-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #8B5CF6;
+}
+
+.book-rating i {
+  color: #8B5CF6;
+}
+
+.book-reviews {
+  font-size: 0.8rem;
+  color: #A0A0A0;
+}
+
+.book-category {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #8B5CF6;
+  background: rgba(139, 92, 246, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .reading-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .genres-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .search-bar {
+    margin: 1rem 0;
+    max-width: 100%;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .view-options {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .reading-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .reading-card .book-cover {
+    width: 120px;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .book-title {
+    font-size: 0.9rem;
+  }
+
+  .book-author {
+    font-size: 0.8rem;
+  }
+
+  .genres-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .genre-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .genre-card i {
+    font-size: 1.5rem;
+  }
+
+  .genre-card h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Featured Authors Section */
+.authors-section {
+  margin: 4rem 0;
+}
+
+.authors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.author-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.author-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
+}
+
+.author-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.author-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author-info {
+  flex: 1;
+}
+
+.author-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.author-category {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #8B5CF6;
+  background: rgba(139, 92, 246, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.author-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #8B5CF6;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #A0A0A0;
+}
+
+/* Reading Challenges Section */
+.challenges-section {
+  margin: 4rem 0;
+}
+
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.challenge-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.challenge-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
+}
+
+.challenge-info h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.challenge-info p {
+  color: #A0A0A0;
+  margin-bottom: 1.5rem;
+}
+
+.challenge-progress {
+  margin-bottom: 1rem;
+}
+
+.challenge-progress .progress-bar {
+  height: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.challenge-meta {
+  display: flex;
+  justify-content: space-between;
+  color: #A0A0A0;
+  font-size: 0.9rem;
+}
+
+/* Book Collections Section */
+.collections-section {
+  margin: 4rem 0;
+}
+
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.collection-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.collection-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
+}
+
+.collection-cover {
+  position: relative;
+  aspect-ratio: 16/9;
+}
+
+.collection-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.collection-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.collection-card:hover .collection-overlay {
+  opacity: 1;
+}
+
+.book-count {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.view-collection-btn {
+  background: #8B5CF6;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-collection-btn:hover {
+  background: #7C3AED;
+  transform: scale(1.05);
+}
+
+.collection-info {
+  padding: 1.5rem;
+}
+
+.collection-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.collection-category {
+  color: #8B5CF6;
+  font-size: 0.9rem;
+}
+
