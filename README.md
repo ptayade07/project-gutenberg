@@ -45,8 +45,7 @@ http://localhost:3000
 
 ## 🌍 Live Demo
 
-(Coming soon)
-
+https://project-gutenberg-redesign.netlify.app/
 ## 👨‍💻 Author
 
 **Purva Tayade**  
